@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Make a Fish</title>
+<style type="text/css">
+    /* Layout + background */
+    html, body {
+        height: 100%;
+        margin: 0;
+        font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 40%, #e0f7fa 100%);
+        color: #05386B;
+        padding: 2rem;
+    }
+
+    /* Container to center text and add subtle frosted panel */
+    .container {
+        text-align: center;
+        padding: 2rem 2.5rem;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.72);
+        box-shadow: 0 10px 30px rgba(5,56,107,0.12);
+        backdrop-filter: blur(6px);
+        max-width: 720px;
+        width: 100%;
+    }
+
+    /* Headings styling */
+    h1 {
+        color: #ff6b6b;
+        font-size: 2.4rem;
+        margin: 0 0 0.4rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: 700;
+        text-shadow: 0 4px 18px rgba(255,107,107,0.08);
+    }
+    h2 {
+        color: #2a9d8f;
+        font-size: 1.1rem;
+        margin: 0 0 1.25rem;
+        font-weight: 600;
+        opacity: 0.95;
+    }
+
+    /* Button styling */
+    button {
+        appearance: none;
+        -webkit-appearance: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 999px;
+        color: #fff;
+        background: linear-gradient(90deg,#ffb86b 0%,#ff6b6b 100%);
+        box-shadow: 0 8px 24px rgba(255,107,107,0.16);
+        transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+    }
+    button:hover {
+        transform: translateY(-3px);
+        filter: brightness(1.03);
+        box-shadow: 0 14px 40px rgba(255,107,107,0.18);
+    }
+    button:active {
+        transform: translateY(-1px) scale(0.995);
+    }
+    button:focus {
+        outline: 3px solid rgba(255,107,107,0.18);
+        outline-offset: 6px;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Make a fish</h1>
+
+    <h2>Make a Fish</h2>
+
+    <button onclick="goToPage('newpage.html')" onmouseover="changeColor(this)">
+       START
+    </button>
+</div>
+
+<script>
+function goToPage(url) {
+    // navigate to the new page in the same tab
+    window.location.href = url;
+}
+function changeColor(el) {
+    el.style.backgroundColor = 'lightgreen';
+}
+</script>
+</body>
+</html>
+
