@@ -84,21 +84,28 @@
 <div class="container">
     <h1>Make a fish</h1>
 
-    <h2>Make a Fish</h2>
+    <h2>Press Start to Begin</h2>
 
-    <button onclick="goToPage('newpage.html')" onmouseover="changeColor(this)">
+    <button id="submitPassword" onmouseover="changeColor(this)">
        START
     </button>
 </div>
 
 <script>
-function goToPage(url) {
-    // navigate to the new page in the same tab
-    window.location.href = url;
-}
-function changeColor(el) {
-    el.style.backgroundColor = 'lightgreen';
-}
+    const submitPassword = document.getElementById('submitPassword');
+      submitPassword.addEventListener('click', () => {
+      const val = passwordInput.value.trim();
+      if (val === correctPassword) {
+        unlocked = true;
+        passwordBox.style.display = 'none';
+        plantSite.style.display = 'none';
+        hubSite.style.display = 'block';
+        isHubActive = true;
+      } else {
+        alert('Incorrect password.');
+        passwordInput.value = '';
+      }
+    });
 </script>
 </body>
 </html>
