@@ -12,46 +12,50 @@
         -moz-osx-font-smoothing: grayscale;
     }
     body {
+        min-height: 100vh;
+        margin: 0;
         display: flex;
         align-items: center;
         justify-content: center;
         background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 40%, #e0f7fa 100%);
         color: #05386B;
         padding: 2rem;
-        min-height: 100vh;
     }
     .container {
         text-align: center;
-        padding: 2rem 2.5rem;
-        border-radius: 14px;
-        background: rgba(255,255,255,0.72);
-        box-shadow: 0 10px 30px rgba(5,56,107,0.12);
-        backdrop-filter: blur(6px);
-        max-width: 720px;
+        padding: 2.5rem 2.8rem;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.88);
+        box-shadow: 0 10px 32px rgba(5,56,107,0.19);
+        backdrop-filter: blur(8px);
+        max-width: 740px;
         width: 100%;
+        min-width: 340px;
+        margin: 1rem;
+        position: relative;
     }
     h1 {
         color: #ff6b6b;
         font-size: 2.4rem;
-        margin: 0 0 0.4rem;
+        margin-bottom: 0.55rem;
         letter-spacing: 1px;
         text-transform: uppercase;
         font-weight: 700;
-        text-shadow: 0 4px 18px rgba(255,107,107,0.08);
+        text-shadow: 0 4px 18px rgba(255,107,107,0.13);
     }
     h2 {
         color: #2a9d8f;
-        font-size: 1.1rem;
-        margin: 0 0 1.25rem;
+        font-size: 1.15rem;
         font-weight: 600;
         opacity: 0.95;
+        margin-bottom: 1.1rem;
+        margin-top: 1rem;
     }
-
-    button {
+    button, .shape-select select {
         appearance: none;
         border: none;
         cursor: pointer;
-        padding: 0.75rem 1.25rem;
+        padding: 0.72rem 1.12rem;
         font-size: 1rem;
         font-weight: 700;
         border-radius: 999px;
@@ -60,57 +64,122 @@
         box-shadow: 0 8px 24px rgba(255,107,107,0.16);
         transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
         margin-top: 1rem;
+        margin-bottom: 0.5rem;
     }
-    button:hover {
-        transform: translateY(-3px);
-        filter: brightness(1.03);
-        box-shadow: 0 14px 40px rgba(255,107,107,0.18);
+    button:hover, .shape-select select:hover {
+        filter: brightness(1.08);
     }
-    button:active {
-        transform: translateY(-1px) scale(0.995);
-    }
-    button:focus {
-        outline: 3px solid rgba(255,107,107,0.18);
-        outline-offset: 6px;
-    }
-    /* Fish builder styles */
-    .fish-builder {
-        margin-top: 2rem;
-    }
-    .fish-parts {
+    .boxy {
         display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-bottom: 2rem;
+        flex-direction: column;
+        gap: 1.4rem;
+        align-items: center;
+        margin: 0 auto;
+        width: 100%;
+    }
+    .fish-builder {
+        margin: 0.1rem 0 1.5rem;
+        background: rgba(255,255,255,0.86);
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(68, 150, 217, 0.09);
+        padding: 1.2rem 1rem;
+        width: 94%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .fish-parts-selections {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.8rem;
+        margin: 0 0 0.5rem 0;
+        background: rgba(220,235,250,0.08);
+        padding: 0.3rem;
+        border-radius: 13px;
+    }
+    .part-box {
+        text-align: center;
+        padding-bottom: 0.5rem;
+    }
+    .part-label {
+        margin-bottom: 0.26rem;
+        font-weight: bold;
+        font-size: 1.05rem;
+        color: #05386B;
     }
     .part-colors {
         display: flex;
-        gap: 1rem;
+        flex-wrap: wrap;
+        gap: 0.52rem;
         margin-top: 0.5rem;
         justify-content: center;
     }
     .color-swatch {
-        width: 38px;
-        height: 38px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         border: 3px solid transparent;
         cursor: pointer;
-        box-shadow: 0 2px 6px rgba(20, 40, 80, 0.07);
+        box-shadow: 0 2px 6px rgba(20, 40, 80, 0.09);
         transition: border-color 0.15s;
+        margin: 0.17rem 0;
     }
     .color-swatch.selected {
         border-color: #255b8d;
-        box-shadow: 0 2px 14px rgba(68, 153, 217, 0.16);
+        box-shadow: 0 2px 12px rgba(68, 153, 217, 0.18);
+    }
+    .shape-select {
+        margin: 0.35rem 0 0.15rem 0;
+    }
+    .shape-select select {
+        background: linear-gradient(90deg,#c2e9fb 0%,#e0f7fa 100%);
+        color: #255b8d;
+        border-radius: 10px;
+        font-size: 0.98rem;
+        font-weight: 600;
+        padding: 0.4rem 0.65rem;
+        box-shadow: 0 2px 8px rgba(68,153,217,.12);
     }
     .fish-preview {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 2rem;
+        margin-top: 1.3rem;
     }
     .svg-fish {
-        width: 200px;
-        height: 120px;
+        width: 260px;
+        height: 160px;
+        margin-bottom: 0.6rem;
+    }
+    .saved-fishes-section {
+        margin-top: 2.5rem;
+        text-align: left;
+        width: 96%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 480px;
+    }
+    .saved-fish {
+        display: flex;
+        align-items: center;
+        gap: 1.1rem;
+        margin-bottom: 1rem;
+        padding: 0.6rem 1rem;
+        background: rgba(200,240,250,.32);
+        border-radius: 15px;
+        box-shadow: 0 2px 7px rgba(80, 170, 240, 0.07);
+    }
+    .mini-svg-fish {
+        width: 68px;
+        height: 42px;
+        flex-shrink: 0;
+    }
+    .fish-meta {
+        font-size: 0.98rem;
+        color: #05386B;
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
     }
 </style>
 </head>
@@ -122,21 +191,41 @@
 </div>
 
 <div class="container" id="fishBuilderPage" style="display: none;">
+    <div class="boxy">
     <h1>Design Your Fish</h1>
     <div class="fish-builder">
         <form id="fishForm">
-            <div class="fish-parts">
-                <div>
-                    <div><strong>Head Color:</strong></div>
+            <div class="fish-parts-selections">
+                <div class="part-box">
+                    <div class="part-label">Head Color</div>
                     <div class="part-colors" id="headColors"></div>
+                    <div class="shape-select"><select id="headShape">
+                        <option value="ellipse">Ellipse</option>
+                        <option value="triangle">Triangle</option>
+                        <option value="circle">Circle</option>
+                        <option value="rectangle">Rectangle</option>
+                        <option value="snout">Snout</option>
+                    </select></div>
                 </div>
-                <div>
-                    <div><strong>Body Color:</strong></div>
+                <div class="part-box">
+                    <div class="part-label">Body Color</div>
                     <div class="part-colors" id="bodyColors"></div>
+                    <div class="shape-select"><select id="bodyShape">
+                        <option value="ellipse">Ellipse</option>
+                        <option value="long">Long oval</option>
+                        <option value="round">Round</option>
+                        <option value="fat">Fat oval</option>
+                    </select></div>
                 </div>
-                <div>
-                    <div><strong>Fin Color:</strong></div>
+                <div class="part-box">
+                    <div class="part-label">Fin Color</div>
                     <div class="part-colors" id="finColors"></div>
+                    <div class="shape-select"><select id="finShape">
+                        <option value="triangle">Triangle</option>
+                        <option value="rounded">Rounded</option>
+                        <option value="spiky">Spiky</option>
+                        <option value="fan">Fan</option>
+                    </select></div>
                 </div>
             </div>
             <button type="submit">SUBMIT</button>
@@ -144,18 +233,32 @@
         <div class="fish-preview" id="fishPreview" style="display:none;">
             <h2>Your Fish!</h2>
             <div id="svgFish"></div>
+            <button type="button" id="saveBtn" style="margin-bottom:0.4rem;">Save Fish</button>
             <button type="button" id="makeAnotherBtn">Make another</button>
         </div>
+    </div>
+    <div class="saved-fishes-section" id="savedFishesSec" style="display:none;">
+        <h2>Saved Fishes</h2>
+        <div id="savedFishesList"></div>
+    </div>
     </div>
 </div>
 
 <script>
-    // Color options
-    const headOptions = ['#f8c291', '#38ada9', '#6a89cc', '#f6b93b', '#b71540'];
-    const bodyOptions = ['#fa983a', '#60a3bc', '#82ccdd', '#0a3d62', '#e17055'];
-    const finOptions = ['#1e3799', '#e66767', '#b8e994', '#fed330', '#b2bec3'];
+    // More color options!
+    const headOptions = [
+        '#f8c291', '#38ada9', '#6a89cc', '#f6b93b', '#b71540', '#ff7f50', '#d35400', '#0984e3',
+        '#fdcb6e', '#badc58', '#8e44ad', '#c0392b', '#fd79a8', '#00b894'
+    ];
+    const bodyOptions = [
+        '#fa983a', '#60a3bc', '#82ccdd', '#0a3d62', '#e17055', '#fab1a0', '#ffda77', '#74b9ff',
+        '#b2bec3', '#55efc4', '#636e72', '#fdffb6', '#a29bfe', '#ffeaa7', '#18dcff'
+    ];
+    const finOptions = [
+        '#1e3799', '#e66767', '#b8e994', '#fed330', '#b2bec3', '#6ab04c', '#30336b', '#e056fd',
+        '#f9ca24', '#00b894', '#ff7675', '#00cec9', '#fd5e53', '#6c5ce7'
+    ];
 
-    // Helper to create color swatches
     function createSwatches(container, colors, groupName) {
         container.innerHTML = '';
         colors.forEach((clr, i) => {
@@ -166,7 +269,6 @@
             swatch.setAttribute('title', clr);
             swatch.setAttribute('tabindex', '0');
             swatch.setAttribute('role', 'button');
-            // select first by default
             if(i === 0) swatch.classList.add('selected');
             swatch.addEventListener('click', () => {
                 Array.from(container.children).forEach(s=>s.classList.remove('selected'));
@@ -178,7 +280,8 @@
             container.appendChild(swatch);
         });
     }
-    // Initialization after DOM loaded
+
+    // Page and builder elements
     const startBtn = document.getElementById('startBtn');
     const homePage = document.getElementById('homePage');
     const fishBuilderPage = document.getElementById('fishBuilderPage');
@@ -187,7 +290,6 @@
     const headColors = document.getElementById('headColors');
     const bodyColors = document.getElementById('bodyColors');
     const finColors = document.getElementById('finColors');
-
     createSwatches(headColors, headOptions, 'head');
     createSwatches(bodyColors, bodyOptions, 'body');
     createSwatches(finColors, finOptions, 'fin');
@@ -202,39 +304,145 @@
         return sel ? sel.dataset.value : null;
     }
 
-    // Fish preview
+    // Fish preview and saved fishes
     const fishPreview = document.getElementById('fishPreview');
     const svgFish = document.getElementById('svgFish');
     const makeAnotherBtn = document.getElementById('makeAnotherBtn');
+    const saveBtn = document.getElementById('saveBtn');
+    const savedFishesSec = document.getElementById('savedFishesSec');
+    const savedFishesList = document.getElementById('savedFishesList');
 
-    // SVG fish builder, simple!
-    function renderFishSVG(headColor, bodyColor, finColor) {
-        return `
-        <svg class="svg-fish" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Body -->
-            <ellipse cx="110" cy="60" rx="70" ry="35" fill="${bodyColor}" stroke="#222" stroke-width="2"/>
-            <!-- Head -->
-            <ellipse cx="45" cy="60" rx="30" ry="25" fill="${headColor}" stroke="#222" stroke-width="2"/>
-            <!-- Top Fin -->
-            <polygon points="115,30 125,12 105,12" fill="${finColor}" stroke="#111" stroke-width="2"/>
-            <!-- Tail Fin -->
-            <polygon points="180,60 200,35 200,85" fill="${finColor}" stroke="#111" stroke-width="2"/>
-            <!-- Bottom Fin -->
-            <polygon points="105,90 125,110 115,80" fill="${finColor}" stroke="#111" stroke-width="2"/>
-            <!-- Eye -->
-            <circle cx="58" cy="63" r="5" fill="#fafafa" stroke="#333" stroke-width="1"/>
-            <circle cx="59" cy="64" r="2.1" fill="#333"/>
-        </svg>
-        `;
+    // SHAPES for select boxes
+    function getShapeValue(id) {
+        return document.getElementById(id).value;
+    }
+    // Detailed fish parts SVGs based on selection!
+    function shapeHead(type, color) {
+        switch(type) {
+            case "ellipse":
+                return `<ellipse cx="54" cy="80" rx="30" ry="20" fill="${color}" stroke="#222" stroke-width="2"/>`;
+            case "triangle":
+                return `<polygon points="24,80 54,60 54,100" fill="${color}" stroke="#222" stroke-width="2"/>`;
+            case "circle":
+                return `<circle cx="54" cy="80" r="22" fill="${color}" stroke="#222" stroke-width="2"/>`;
+            case "rectangle":
+                return `<rect x="32" y="60" width="43" height="40" rx="12" fill="${color}" stroke="#222" stroke-width="2"/>`;
+            case "snout":
+                return `<ellipse cx="49" cy="80" rx="22" ry="18" fill="${color}" stroke="#222" stroke-width="2"/>
+                        <polygon points="30,80 18,75 19,85" fill="${color}" stroke="#222" stroke-width="1"/>`;
+            default:
+                return '';
+        }
+    }
+    function shapeBody(type, color) {
+        switch(type) {
+            case "ellipse":
+                return `<ellipse cx="110" cy="80" rx="60" ry="32" fill="${color}" stroke="#222" stroke-width="2"/>`;
+            case "long":
+                return `<ellipse cx="115" cy="82" rx="75" ry="26" fill="${color}" stroke="#222" stroke-width="2"/>`;
+            case "round":
+                return `<ellipse cx="110" cy="90" rx="30" ry="30" fill="${color}" stroke="#222" stroke-width="2"/>`;
+            case "fat":
+                return `<ellipse cx="115" cy="80" rx="60" ry="42" fill="${color}" stroke="#222" stroke-width="2"/>`;
+            default:
+                return '';
+        }
+    }
+    function shapeFin(type, color) {
+        let out = '';
+        // top fin
+        switch(type) {
+            case "triangle":
+                out += `<polygon points="133,43 147,26 126,26" fill="${color}" stroke="#111" stroke-width="2"/>`;
+                break;
+            case "rounded":
+                out += `<ellipse cx="134" cy="34" rx="17" ry="7" fill="${color}" stroke="#111" stroke-width="2"/>`;
+                break;
+            case "spiky":
+                out += `<polygon points="125,28 145,13 133,43" fill="${color}" stroke="#111" stroke-width="2"/>`;
+                break;
+            case "fan":
+                out += `<path d="M125,25 Q140,5 150,25 Q140,30 125,25" fill="${color}" stroke="#111" stroke-width="2"/>`;
+                break;
+        }
+        // tail fin
+        switch(type) {
+            case "triangle":
+                out += `<polygon points="185,80 210,55 210,105" fill="${color}" stroke="#111" stroke-width="2"/>`;
+                break;
+            case "rounded":
+                out += `<ellipse cx="203" cy="80" rx="15" ry="23" fill="${color}" stroke="#111" stroke-width="2"/>`;
+                break;
+            case "spiky":
+                out += `<polygon points="185,80 210,40 211,120" fill="${color}" stroke="#111" stroke-width="2"/>`;
+                break;
+            case "fan":
+                out += `<path d="M185,80 Q210,60 210,105 Q201,82 185,80" fill="${color}" stroke="#111" stroke-width="2"/>`;
+                break;
+        }
+        // bottom fin
+        switch(type) {
+            case "triangle":
+                out += `<polygon points="130,110 146,127 124,127" fill="${color}" stroke="#111" stroke-width="2"/>`;
+                break;
+            case "rounded":
+                out += `<ellipse cx="137" cy="121" rx="13" ry="7" fill="${color}" stroke="#111" stroke-width="2"/>`;
+                break;
+            case "spiky":
+                out += `<polygon points="125,120 143,138 135,110" fill="${color}" stroke="#111" stroke-width="2"/>`;
+                break;
+            case "fan":
+                out += `<path d="M126,121 Q142,138 147,122 Q132,125 126,121" fill="${color}" stroke="#111" stroke-width="2"/>`;
+                break;
+        }
+        return out;
     }
 
+    function renderFishSVG(details, mini=false) {
+        // details: {head,body,fin colors, shapes}
+        // adjust positions for mini
+        const w = mini ? 85 : 245;
+        const h = mini ? 52 : 145;
+        // eye position scales for mini
+        const eyeCx = mini ? 62 : 63;
+        const eyeCy = mini ? 86 : 92;
+        const rWhite = mini ? 3.25 : 7;
+        const rBlack = mini ? 1.3 : 2.3;
+
+        return `<svg class="${mini?'mini-svg-fish':'svg-fish'}" viewBox="0 0 ${w} ${h}" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Body -->
+            ${shapeBody(details.bodyShape, details.bodyColor)}
+            <!-- Head -->
+            ${shapeHead(details.headShape, details.headColor)}
+            <!-- Fins -->
+            ${shapeFin(details.finShape, details.finColor)}
+            <!-- Eye -->
+            <circle cx="${eyeCx}" cy="${eyeCy}" r="${rWhite}" fill="#fafafa" stroke="#333" stroke-width="1"/>
+            <circle cx="${eyeCx+1.3}" cy="${eyeCy+1.1}" r="${rBlack}" fill="#333"/>
+        </svg>`;
+    }
+
+    // Form submit + preview
     fishForm.addEventListener('submit', function(e) {
         e.preventDefault();
+        // selections
         const head = getSelectedSwatch(headColors);
         const body = getSelectedSwatch(bodyColors);
         const fin = getSelectedSwatch(finColors);
+        const headShape = getShapeValue('headShape');
+        const bodyShape = getShapeValue('bodyShape');
+        const finShape = getShapeValue('finShape');
 
-        svgFish.innerHTML = renderFishSVG(head, body, fin);
+        window.currFish = {
+            headColor: head,
+            bodyColor: body,
+            finColor: fin,
+            headShape,
+            bodyShape,
+            finShape
+        };
+
+        svgFish.innerHTML = renderFishSVG(window.currFish, false);
         fishPreview.style.display = '';
         fishForm.style.display = 'none';
     });
@@ -243,6 +451,38 @@
         fishPreview.style.display = 'none';
         fishForm.style.display = '';
     });
+
+    // Saving and displaying saved fishes
+    let savedFishes = [];
+    saveBtn.addEventListener('click', function(){
+        if(window.currFish) {
+            savedFishes.push({...window.currFish});
+            updateSavedFishes();
+            // Feedback for save
+            saveBtn.style.background = 'linear-gradient(90deg,#38ada9 0%,#6a89cc 100%)';
+            setTimeout(()=>{saveBtn.style.background = ''},400);
+        }
+    });
+
+    function updateSavedFishes() {
+        if(savedFishes.length === 0) {
+            savedFishesSec.style.display = 'none';
+            return;
+        }
+        savedFishesSec.style.display = '';
+        savedFishesList.innerHTML = '';
+        savedFishes.forEach((fish,i)=>{
+            const div = document.createElement('div');
+            div.className = 'saved-fish';
+            div.innerHTML = `${renderFishSVG(fish,true)}
+                <div class="fish-meta">
+                <span>Head: <span style="background:${fish.headColor};border-radius:7px;padding:0 .4em;">${fish.headShape}</span></span>
+                <span>Body: <span style="background:${fish.bodyColor};border-radius:7px;padding:0 .4em;">${fish.bodyShape}</span></span>
+                <span>Fin: <span style="background:${fish.finColor};border-radius:7px;padding:0 .4em;">${fish.finShape}</span></span>
+                </div>`;
+            savedFishesList.appendChild(div);
+        });
+    }
 </script>
 </body>
 </html>
